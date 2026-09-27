@@ -55,7 +55,6 @@
     if (!game || game.__phase1Patched) return;
     game.__phase1Patched = true;
 
-    // Scale click income without replacing the original economy implementation.
     if (typeof game.click === 'function') {
       const originalClick = game.click.bind(game);
       game.click = (...args) => {
@@ -70,7 +69,6 @@
       };
     }
 
-    // Prestige is deliberately an endgame feature: earliest access is level 7.
     if (window.PrestigeSystem && typeof window.PrestigeSystem.openFlush === 'function') {
       const system = window.PrestigeSystem;
       const originalOpenFlush = system.openFlush.bind(system);
